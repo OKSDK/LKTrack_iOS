@@ -1,13 +1,13 @@
 # 统计
 ----
 ### 一、统计SDK文件
-
+![avatar](http://oscsfqu9d.bkt.clouddn.com/%E5%9B%BE%E7%89%87%201.png)
 ### 二、添加必要的库文件
 >统计sdk依赖于OKSDK的KMToolBox.framework，如果工程中未添加此文件，则需要将下图文件添加到工程中，如果在接入OKSDK时已添加过，则只需替换即可。
-
+![avatar](http://oscsfqu9d.bkt.clouddn.com/%E5%9B%BE%E7%89%87%202.png)
 
 ### 三、info.plist配置
-
+![avatar](http://oscsfqu9d.bkt.clouddn.com/%E5%9B%BE%E7%89%87%203.png)
 ### 四、接口
 >接口名以及参数都以宏定义，如果非OC原生工程调用接口过程中传递宏名不方便，也可直接传递宏定义的字符串，如：
 ```objective-c
@@ -158,7 +158,7 @@ eventValue:
  ----|------|----
  LKEvetnParamRoleLevel | String  | 角色等级
  示例：
-  ```objective-c
+```objective-c
      NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"35" ForKey:LKEvetnParamRoleLevel];
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ROLE_UPGRADE andEventValue:mutable_Dic];
@@ -192,7 +192,7 @@ eventValue:
  LKEventParamMoney2 | String  | 当前下线时的金钱数2
  LKEventParamExperience | String  | 当前经验值
  示例：
-  ```objective-c
+```objective-c
     NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"325" ForKey:LKEventParamMoney1];
     [mutable_Dic setInstance:@"310" ForKey:LKEventParamMoney2];
@@ -226,7 +226,7 @@ eventValue:
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
  示例：
-  ```objective-c
+```objective-c
      NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"2017-06-26" ForKey:LKEventParamEnterTime];
     [mutable_Dic setInstance:@"123" ForKey:LKEventParamPassId];
@@ -249,7 +249,7 @@ eventValue:
  LKEventParamKey3 | String  | 预留字段3
  LKEventParamResultId | String  | 结果，如：1 - 成功；2 - 失败
   示例：
-    ```objective-c
+```objective-c
     NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"2017-06-26" ForKey:LKEventParamResultTime];
     [mutable_Dic setInstance:@"123" ForKey:LKEventParamPassId];
@@ -259,7 +259,7 @@ eventValue:
     [mutable_Dic setInstance:@"97" ForKey:LKEventParamKey3];
     NSString *str = [self dataTojsonString:mutable_Dic];
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_PASS_RESULT andEventValue:str];
-    ```
+```
     
 11. 固定事件（必接）  
 eventType: LK\_TRACK\_FIXED\_EVENT  
@@ -271,7 +271,7 @@ eventValue:
  LKEventParamEventPid | String  | 事件父ID
  LKEventParamEventDesc | String  | 事件描述
 示例：（图中为BIController传的参数，因为捉妖已经接过BIController，可以不用修改直接传，其他游戏只用传上表中三个字段即可）
-    ```objective-c
+```objective-c
     NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"123" ForKey:LKEventParamGameId];
     [mutable_Dic setInstance:@"246" ForKey:LKEventParamServerId];
@@ -282,7 +282,7 @@ eventValue:
     [mutable_Dic setInstance:@"这是一个事件" ForKey:LKEventParamEventDesc];
     NSString *str = [self dataTojsonString:mutable_Dic];
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_FIXED_EVENT andEventValue:str];
-    ```
+```
  
 12. 日常运营活动  
 eventType: LK\_TRACK\_SDK\_ACTIVITY  
@@ -300,8 +300,8 @@ eventValue:
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
    示例：
-    ```objective-c
-        NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
+```objective-c
+    NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"2017-06-26" ForKey:LKEventParamActivityTime];
     [mutable_Dic setInstance:@"125" ForKey:LKEventParamActivityId];
     [mutable_Dic setInstance:@"129" ForKey:LKEventParamActivityType1];
@@ -313,7 +313,7 @@ eventValue:
     [mutable_Dic setInstance:@"97" ForKey:LKEventParamKey3];
     NSString *str = [self dataTojsonString:mutable_Dic];
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_SDK_ACTIVITY andEventValue:str];
-    ```
+```
     
 13. 系统生命周期方法
 请务必在游戏Xcode工程同名系统方法中调用
