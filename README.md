@@ -235,8 +235,7 @@ eventValue:
     [mutable_Dic setInstance:@"97" ForKey:LKEventParamKey3];
     NSString *str = [self dataTojsonString:mutable_Dic];
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_PASS_ENTER andEventValue:str];
-    ```
-    
+  ```
 10. 完成关卡（必接）  
 eventType: LK\_TRACK\_PASS\_RESULT  
 eventValue:
