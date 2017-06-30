@@ -1,14 +1,14 @@
-#统计SDK
+# 统计SDK
 ----
-###一、统计SDK文件
+### 一、统计SDK文件
 
-###二、添加必要的库文件
+### 二、添加必要的库文件
 >统计sdk依赖于OKSDK的KMToolBox.framework，如果工程中未添加此文件，则需要将下图文件添加到工程中，如果在接入OKSDK时已添加过，则只需替换即可。
 
 
-###三、info.plist配置
+### 三、info.plist配置
 
-###四、接口
+### 四、接口
 >接口名以及参数都以宏定义，如果非OC原生工程调用接口过程中传递宏名不方便，也可直接传递宏定义的字符串，如：
 ```objective-c
 	NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
@@ -18,7 +18,7 @@
 	[mutable_Dic setInstance:@"180" ForKey:LKEventParamGameId];
 	[[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ACTIVE andEventValue:mutable_Dic];
 ```
-等价于
+>等价于
 ```objective-c
 	NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
 	[mutable_Dic setInstance:@"123" ForKey:@“lk_track_company_id”];
