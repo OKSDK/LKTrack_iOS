@@ -1,4 +1,4 @@
-# 统计
+# 统计SDK
 ----
 ### 一、统计SDK文件
 ![avatar](http://oscsfqu9d.bkt.clouddn.com/%E5%9B%BE%E7%89%87%201.png)
@@ -360,5 +360,142 @@ eventValue:
  *  @param application
  */
 - (void)applicationWillTerminate:(UIApplication *)application;
-    ```
+```
+### 五、附录（接口头文件）
+```objective-c
+//
+//  LKTrack.h
+//  OKSDKLK
+//
+//  Created by Madoka on 17/3/10.
+//  Copyright © 2017年 zxq. All rights reserved.
+//
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+// In app event names constants
+#define LK_TRACK_ACTIVE           @"lk_sdk_active"              // 激活
+#define LK_TRACK_LOGIN_SUCCESS    @"lk_sdk_login_success"       // 登录成功
+#define LK_TRACK_LOGIN_FAILURE    @"lk_sdk_login_failure"       // 登录失败
+#define LK_TRACK_LOGIN_CANCEL     @"lk_sdk_login_cancel"        // 登录取消
+#define LK_TRACK_LOGOUT           @"lk_sdk_logout"              // 登出
+#define LK_TRACK_CREATE_ROLE      @"lk_sdk_create_role"         // 创建角色
+#define LK_TRACK_ENTER_GAME       @"lk_sdk_enter_game"          // 进入游戏
+#define LK_TRACK_ROLE_UPGRADE     @"lk_sdk_role_upgrade"        // 角色升级
+#define LK_TRACK_PURCHASE_SUCCESS @"lk_sdk_purchase_success"    // 支付成功
+#define LK_TRACK_PURCHASE_FAILURE @"lk_sdk_purchase_failure"    // 支付失败
+#define LK_TRACK_PURCHASE_CANCEL  @"lk_sdk_puchase_cancel"      // 支付取消
+#define LK_TRACK_USE_ITEM         @"lk_sdk_use_item"            // 使用道具
+#define LK_TRACK_REWARD           @"lk_sdk_reward"              // 奖励
+#define LK_TRACK_CUSTOM           @"lk_sdk_custom"              // 自定义事件
+#define LK_TRACK_PASS_ENTER       @"lk_sdk_pass_enter"          // 关卡----进入
+#define LK_TRACK_PASS_RESULT      @"lk_sdk_pass_result"         // 关卡----结果
+#define LK_TRACK_FIXED_EVENT      @"lk_sdk_fixed_event"         // 固定事件
+#define LK_TRACK_SDK_ACTIVITY     @"lk_sdk_activity"            // 日常运营活动
+// In app event parameter names
+#define LKEventParamGameId          @"lk_track_game_id"             // gameId
+#define LKEventParamCompanyId       @"lk_track_company_id"          // 公司Id
+#define LKEventParamChannelId       @"lk_track_channel_id"          // 渠道Id
+#define LKEventParamPassportId      @"lk_track_passport_id"         // 账号Id
+#define LKEventParamPassportName    @"lk_track_passport_name"       // 账号名
+#define LKEventParamPassportType    @"lk_track_passport_type"       // 账号类型
+#define LKEventParamPassportBalance @"lk_track_passport_balance"    // 账号余额
+#define LKEventParamServerId        @"lk_track_server_id"           // 服务器Id
+#define LKEventParamServerName      @"lk_track_server_name"         // 服务器名称
+#define LKEventParamRoleName        @"lk_track_role_name"           // 角色名
+#define LKEventParamRoleId          @"lk_track_role_id"             // 角色Id
+#define LKEvetnParamRoleLevel       @"lk_track_role_level"          // 角色等级
+#define LKEventParamCreateRoleTime  @"lk_track_server_create_time"  // 角色创建时间
+#define LKEventParamDelRoleTime     @"lk_track_server_del_time"     // 角色删除时间
+#define LKEventParamRoleUnion       @"lk_track_role_union"          // 角色公会&帮派
+#define LKEventParamRoleBalance     @"lk_track_role_balance"        // 角色余额
+#define LKEventParamRoleCareer      @"lk_track_role_career"         // 角色职业
+#define LKEventParamRoleGender      @"lk_track_role_gender"         // 角色性别
+#define LKEventParamRoleFaction     @"lk_track_role_faction"        // 角色阵营
+#define LKEventParamMoneyAmount     @"lk_track_money_amount"        // 付费金额
+#define LKEventParamProductName     @"lk_track_product_name"        // 商品名称
+#define LKEventParamProductId       @"lk_track_product_id"          // 商品Id
+#define LKEventParamMoney1          @"lk_track_money1"              //
+#define LKEventParamMoney2          @"lk_track_money2"
+#define LKEventParamExperience      @"lk_track_exprience"           // 经验值
+#define LKEventParamAdId            @"lk_track_ad_id"               // 广告Id
+#define LKEventParamCustomInfo      @"lk_track_customInfo"          // 自定义事件json
+/*                  关卡进入事件参数                  */
+#define LKEventParamAppId           @"lk_track_app_id"              // 应用Id
+#define LKEventParamEnterTime       @"lk_track_enter_time"          // 进入关卡时间
+#define LKEventParamPassId          @"lk_track_pass_id"             // 关卡Id
+#define LKEventParamKey1            @"lk_track_key1"                // 预留字段1
+#define LKEventParamKey2            @"lk_track_key2"                // 预留字段2
+#define LKEventParamKey3            @"lk_track_key3"                // 预留字段3
+/*                  关卡结果事件参数                  */
+#define LKEventParamResultTime      @"lk_track_result_time"         // 关卡完成时间
+#define LKEventParamResultId        @"lk_track_result_id"           // 关卡结果Id
+/*                  固定事件参数                  */
+#define LKEventParamEventGid        @"lk_track_event_gid"           // 事件Id
+#define LKEventParamEventPid        @"lk_track_event_pid"           // 事件父Id
+#define LKEventParamEventDesc       @"lk_track_event_desc"          // 事件描述
+/*                  日常运营活动事件参数                  */
+#define LKEventParamActivityTime    @"lk_track_product_activity_time"       // 参与活动时间
+#define LKEventParamActivityId      @"lk_track_product_activity_id"         // 活动Id
+#define LKEventParamRoleOccupation  @"lk_track_product_role_occupation"     // 角色职业
+#define LKEventParamActivityType1   @"lk_track_product_activity_type1"      // 活动子类型1
+#define LKEventParamActivityType2   @"lk_track_product_activity_type2"      // 活动子类型2
+#define LKEventParamActivityType3   @"lk_track_product_activity_type3"      // 活动子类型3
+#define LKEventParamOperationType   @"lk_track_operation_type"              // 操作类型
+@interface LKTrack : NSObject
+/**
+ *  单例
+ *
+ */
++ (instancetype)shareInstance;
+/**
+ *  事件追踪
+ *
+ *  @param eventType  事件类型
+ *  @param eventValue 事件JSON
+ */
+- (void)eventTrackWithEventType:(NSString *)eventType andEventValue:(NSString *)eventStr;
 
+/*!
+ *  接口预留系统方法
+ *  在程序的启动的Appdelegate相应的代理方法里面调用
+ */
+/**
+ *  程序加载完成
+ *
+ *  @param application
+ *  @param launchOptions
+ *
+ *  @return
+ */
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
+/**
+ *  程序获得焦点
+ *
+ *  @param application
+ */
+- (void)applicationDidBecomeActive:(UIApplication *)application;
+/**
+ *  程序进入后台
+ *
+ *  @param application
+ */
+- (void)applicationDidEnterBackground:(UIApplication *)application;
+/**
+ *  程序跳转
+ *
+ *  @param application
+ *  @param url
+ *  @param sourceApplication
+ *  @param annotation
+ *
+ *  @return
+ */
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
+/**
+ *  程序销毁
+ *
+ *  @param application
+ */
+- (void)applicationWillTerminate:(UIApplication *)application;
+@end
+```
