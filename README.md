@@ -208,7 +208,7 @@ eventValue:
  ----|------|----
  LKEventParamCustomInfo | String  | 自定义参数（json字符串）
  示例：
-   ```objective-c
+ ```objective-c
      NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
      [mutable_Dic setInstance:@"{\"eventName\":\"这是一个自定义事件\"}" ForKey:LKEventParamCustomInfo];
      [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_CUSTOM andEventValue:mutable_Dic];
