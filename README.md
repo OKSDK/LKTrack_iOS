@@ -60,7 +60,8 @@ eventValue:
  LKEventParamPassportName | String  | 游戏内的username
  LKEventParamPassportType | String  | 账号类型
  LKEventParamPassportBalance | String  | 账号余额
-示例：
+ 
+ 示例：
 ```objective-c
      NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:self.lkAdId ForKey:LKEventParamAdId];
@@ -93,6 +94,7 @@ eventValue:
  LKEventParamRoleGender | String  | 角色性别
  LKEventParamRoleFaction | String  | 角色阵营
  LKEventParamRoleUnion | String  | 角色帮会
+ 
  示例：
   ```objective-c
      NSMutableDictionary *m_Dictionary = [NSMutableDictionary dictionary];
@@ -127,7 +129,8 @@ eventValue:
  LKEventParamRoleGender | String  | 角色性别
  LKEventParamRoleFaction | String  | 角色阵营
  LKEventParamRoleUnion | String  | 角色帮会
-  示例：
+ 
+ 示例：
  ```objective-c
       NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"Madoka" ForKey:LKEventParamPassportName];
@@ -157,6 +160,7 @@ eventValue:
  参数名 | 类型 | 描述
  ----|------|----
  LKEvetnParamRoleLevel | String  | 角色等级
+ 
  示例：
 ```objective-c
      NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
@@ -173,6 +177,7 @@ eventValue:
  LKEventParamMoneyAmount | String  | 付费金额
  LKEventParamProductName | String  | 商品名称
  LKEventParamProductId | String  | 商品id
+ 
  示例：
 ```objective-c
 	NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
@@ -191,7 +196,9 @@ eventValue:
  LKEventParamMoney1 | String  | 当前下线时的金钱数1
  LKEventParamMoney2 | String  | 当前下线时的金钱数2
  LKEventParamExperience | String  | 当前经验值
+ 
  示例：
+ 
 ```objective-c
     NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"325" ForKey:LKEventParamMoney1];
@@ -207,6 +214,7 @@ eventValue:
  参数名 | 类型 | 描述
  ----|------|----
  LKEventParamCustomInfo | String  | 自定义参数（json字符串）
+ 
  示例：
  ```objective-c
      NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
@@ -225,6 +233,7 @@ eventValue:
  LKEventParamKey1 | String  | 预留字段1
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
+ 
  示例：
 ```objective-c
      NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
@@ -248,7 +257,8 @@ eventValue:
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
  LKEventParamResultId | String  | 结果，如：1 - 成功；2 - 失败
-  示例：
+ 
+ 示例：
 ```objective-c
     NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"2017-06-26" ForKey:LKEventParamResultTime];
@@ -270,6 +280,7 @@ eventValue:
  LKEventParamEventGid | String  | 事件ID
  LKEventParamEventPid | String  | 事件父ID
  LKEventParamEventDesc | String  | 事件描述
+ 
 示例：（图中为BIController传的参数，因为捉妖已经接过BIController，可以不用修改直接传，其他游戏只用传上表中三个字段即可）
 ```objective-c
     NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
@@ -299,6 +310,7 @@ eventValue:
  LKEventParamKey1 | String  | 预留字段1
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
+ 
    示例：
 ```objective-c
     NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
