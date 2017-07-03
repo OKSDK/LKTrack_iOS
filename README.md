@@ -233,6 +233,7 @@ eventValue:
  LKEventParamKey1 | String  | 预留字段1
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
+ LKEvetnParamRoleLevel | String  | 角色等级
  
  示例：
 ```objective-c
@@ -257,6 +258,7 @@ eventValue:
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
  LKEventParamResultId | String  | 结果，如：1 - 成功；2 - 失败
+ LKEvetnParamRoleLevel | String  | 角色等级
  
  示例：
 ```objective-c
@@ -280,6 +282,7 @@ eventValue:
  LKEventParamEventGid | String  | 事件ID
  LKEventParamEventPid | String  | 事件父ID
  LKEventParamEventDesc | String  | 事件描述
+ LKEvetnParamRoleLevel | String  | 角色等级
  
 示例：（图中为BIController传的参数，因为捉妖已经接过BIController，可以不用修改直接传，其他游戏只用传上表中三个字段即可）
 ```objective-c
@@ -310,6 +313,7 @@ eventValue:
  LKEventParamKey1 | String  | 预留字段1
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
+ LKEvetnParamRoleLevel | String  | 角色等级
  
    示例：
 ```objective-c
