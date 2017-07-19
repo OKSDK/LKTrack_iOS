@@ -39,6 +39,7 @@ eventValue:
  LKEventParamChannelId | String  | 渠道id
  LKEventParamAdId | String  | 蓝港广告ID
  LKEventParamGameId | String  | 游戏ID
+ LKEventParamAppId | String | 统计平台分配的appid
  
  示例：
  ```objective-c
@@ -47,6 +48,7 @@ eventValue:
     [mutable_Dic setInstance:@"345" ForKey:LKEventParamChannelId];
     [mutable_Dic setInstance:@"12345345" ForKey:LKEventParamAdId];
     [mutable_Dic setInstance:@"180" ForKey:LKEventParamGameId];
+    [mutable_Dic setInstance:@"180" ForKey:LKEventParamAppId];
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ACTIVE andEventValue:mutable_Dic];
   ```
  
@@ -78,32 +80,24 @@ eventValue:
 
  参数名 | 类型 | 描述
  ----|------|----
- LKEventParamPassportId | String  | 游戏内的userid
- LKEventParamPassportName | String  | 游戏内的username
- LKEventParamPassportType | String  | 账号类型
- LKEventParamPassportBalance | String  | 账号余额
  LKEventParamServerId | String  | 区服id
  LKEventParamServerName | String  | 区服名称
  LKEventParamRoleId | String  | 角色id
  LKEventParamRoleName | String  | 角色名称
- LKEvetnParamRoleLevel | String  | 角色等级
  LKEventParamCreateRoleTime | String  | 创建角色时间
- LKEventParamDelRoleTime | String  | 删除角色时间
- LKEventParamRoleBalance | String  | 角色余额
  LKEventParamRoleCareer | String  | 角色职业
  LKEventParamRoleGender | String  | 角色性别
- LKEventParamRoleFaction | String  | 角色阵营
- LKEventParamRoleUnion | String  | 角色帮会
  
  示例：
   ```objective-c
      NSMutableDictionary *m_Dictionary = [NSMutableDictionary dictionary];
-    [m_Dictionary setInstance:[paramDic objectForKey:@"userName"] ForKey:LKEventParamPassportName];
     [m_Dictionary setInstance:[paramDic objectForKey:@"roleId"] ForKey:LKEventParamRoleId];
     [m_Dictionary setInstance:[paramDic objectForKey:@"roleName"] ForKey:LKEventParamRoleName];
     [m_Dictionary setInstance:[paramDic objectForKey:@"serverId"] ForKey:LKEventParamServerId];
     [m_Dictionary setInstance:[paramDic objectForKey:@"serverName"] ForKey:LKEventParamServerName];
-    [m_Dictionary setInstance:[paramDic objectForKey:@"createRoleTime"] ForKey:LKEventParamCreateRoleTime];   
+    [m_Dictionary setInstance:[paramDic objectForKey:@"createRoleTime"] ForKey:LKEventParamCreateRoleTime];
+    [m_Dictionary setInstance:[paramDic objectForKey:@"roleCareer"] ForKey:LKEventParamRoleCareer];  
+    [m_Dictionary setInstance:[paramDic objectForKey:@"roleGender"] ForKey:LKEventParamRoleGender];  
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_CREATE_ROLE andEventValue:m_Dictionary];
  ```
  
@@ -113,10 +107,6 @@ eventValue:
 
  参数名 | 类型 | 描述
  ----|------|----
- LKEventParamPassportId | String  | 游戏内的userid
- LKEventParamPassportName | String  | 游戏内的username
- LKEventParamPassportType | String  | 账号类型
- LKEventParamPassportBalance | String  | 账号余额
  LKEventParamServerId | String  | 区服id
  LKEventParamServerName | String  | 区服名称
  LKEventParamRoleId | String  | 角色id
@@ -133,10 +123,6 @@ eventValue:
  示例：
  ```objective-c
       NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
-    [mutable_Dic setInstance:@"Madoka" ForKey:LKEventParamPassportName];
-    [mutable_Dic setInstance:@"12345" ForKey:LKEventParamPassportId];
-    [mutable_Dic setInstance:@"0" ForKey:LKEventParamPassportType];
-    [mutable_Dic setInstance:@"100" ForKey:LKEventParamPassportBalance];
     [mutable_Dic setInstance:@"98777" ForKey:LKEventParamServerId];
     [mutable_Dic setInstance:@"永恒一服" ForKey:LKEventParamServerName];
     [mutable_Dic setInstance:@"1234" ForKey:LKEventParamRoleId];
@@ -160,11 +146,17 @@ eventValue:
  参数名 | 类型 | 描述
  ----|------|----
  LKEvetnParamRoleLevel | String  | 角色等级
+ LKEventParamRoleBalance | String  | 角色余额
+ LKEventParamRoleFaction | String  | 角色阵营
+ LKEventParamRoleUnion | String  | 角色帮会
  
  示例：
 ```objective-c
      NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"35" ForKey:LKEvetnParamRoleLevel];
+    [mutable_Dic setInstance:@"99" ForKey:LKEventParamRoleBalance];
+    [mutable_Dic setInstance:@"冒险家" ForKey:LKEventParamRoleFaction];
+    [mutable_Dic setInstance:@"第一帮会" ForKey:LKEventParamRoleUnion];
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ROLE_UPGRADE andEventValue:mutable_Dic];
 ```
 
@@ -233,7 +225,6 @@ eventValue:
  LKEventParamKey1 | String  | 预留字段1
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
- LKEvetnParamRoleLevel | String  | 角色等级
  
  示例：
 ```objective-c
@@ -258,7 +249,6 @@ eventValue:
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
  LKEventParamResultId | String  | 结果，如：1 - 成功；2 - 失败
- LKEvetnParamRoleLevel | String  | 角色等级
  
  示例：
 ```objective-c
@@ -282,7 +272,6 @@ eventValue:
  LKEventParamEventGid | String  | 事件ID
  LKEventParamEventPid | String  | 事件父ID
  LKEventParamEventDesc | String  | 事件描述
- LKEvetnParamRoleLevel | String  | 角色等级
  
 示例：（图中为BIController传的参数，因为捉妖已经接过BIController，可以不用修改直接传，其他游戏只用传上表中三个字段即可）
 ```objective-c
@@ -313,7 +302,6 @@ eventValue:
  LKEventParamKey1 | String  | 预留字段1
  LKEventParamKey2 | String  | 预留字段2
  LKEventParamKey3 | String  | 预留字段3
- LKEvetnParamRoleLevel | String  | 角色等级
  
    示例：
 ```objective-c
