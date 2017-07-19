@@ -5,10 +5,7 @@
 ### 二、添加必要的库文件
 >统计sdk依赖于OKSDK的KMToolBox.framework，如果工程中未添加此文件，则需要将下图文件添加到工程中，如果在接入OKSDK时已添加过，则只需替换即可。
 ![avatar](http://oscsfqu9d.bkt.clouddn.com/%E5%9B%BE%E7%89%87%202.png)
-
-### 三、info.plist配置
-![avatar](http://oscsfqu9d.bkt.clouddn.com/%E5%9B%BE%E7%89%87%203.png)
-### 四、接口
+### 三、接口
 >接口名以及参数都以宏定义，如果非OC原生工程调用接口过程中传递宏名不方便，也可直接传递宏定义的字符串，如：
 ```objective-c
 	NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
@@ -48,7 +45,10 @@ eventValue:
     [mutable_Dic setInstance:@"345" ForKey:LKEventParamChannelId];
     [mutable_Dic setInstance:@"12345345" ForKey:LKEventParamAdId];
     [mutable_Dic setInstance:@"180" ForKey:LKEventParamGameId];
-    [mutable_Dic setInstance:@"180" ForKey:LKEventParamAppId];
+    [mutable_Dic setInstance:@"ios_app_1" ForKey:LKEventParamAppId];
+    [mutable_Dic setInstance:@"1080TI" ForKey:LKEventParamGPUModle];
+    [mutable_Dic setInstance:@"8G" ForKey:LKEventParamGPUMemorySize];
+    [mutable_Dic setInstance:@"1.3.5" ForKey:LKEventParamGPUVersion];
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ACTIVE andEventValue:mutable_Dic];
   ```
  
@@ -152,12 +152,13 @@ eventValue:
  
  示例：
 ```objective-c
-     NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
+    NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
     [mutable_Dic setInstance:@"35" ForKey:LKEvetnParamRoleLevel];
-    [mutable_Dic setInstance:@"99" ForKey:LKEventParamRoleBalance];
-    [mutable_Dic setInstance:@"冒险家" ForKey:LKEventParamRoleFaction];
-    [mutable_Dic setInstance:@"第一帮会" ForKey:LKEventParamRoleUnion];
+    [mutable_Dic setInstance:@"部落" ForKey:LKEventParamRoleFaction];
+    [mutable_Dic setInstance:@"魔法少女协会" ForKey:LKEventParamRoleUnion];
+    [mutable_Dic setInstance:@"9999999" ForKey:LKEventParamRoleBalance];
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ROLE_UPGRADE andEventValue:mutable_Dic];
+
 ```
 
 6. 支付【成功、失败、取消】  
@@ -365,7 +366,7 @@ eventValue:
  */
 - (void)applicationWillTerminate:(UIApplication *)application;
 ```
-### 五、附录（接口头文件）
+### 四、附录（接口头文件）
 ```objective-c
 //
 //  LKTrack.h
@@ -374,8 +375,10 @@ eventValue:
 //  Created by Madoka on 17/3/10.
 //  Copyright © 2017年 zxq. All rights reserved.
 //
+
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
 // In app event names constants
 #define LK_TRACK_ACTIVE           @"lk_sdk_active"              // 激活
 #define LK_TRACK_LOGIN_SUCCESS    @"lk_sdk_login_success"       // 登录成功
@@ -395,6 +398,7 @@ eventValue:
 #define LK_TRACK_PASS_RESULT      @"lk_sdk_pass_result"         // 关卡----结果
 #define LK_TRACK_FIXED_EVENT      @"lk_sdk_fixed_event"         // 固定事件
 #define LK_TRACK_SDK_ACTIVITY     @"lk_sdk_activity"            // 日常运营活动
+
 // In app event parameter names
 #define LKEventParamGameId          @"lk_track_game_id"             // gameId
 #define LKEventParamCompanyId       @"lk_track_company_id"          // 公司Id
@@ -408,8 +412,8 @@ eventValue:
 #define LKEventParamRoleName        @"lk_track_role_name"           // 角色名
 #define LKEventParamRoleId          @"lk_track_role_id"             // 角色Id
 #define LKEvetnParamRoleLevel       @"lk_track_role_level"          // 角色等级
-#define LKEventParamCreateRoleTime  @"lk_track_server_create_time"  // 角色创建时间
-#define LKEventParamDelRoleTime     @"lk_track_server_del_time"     // 角色删除时间
+#define LKEventParamCreateRoleTime  @"lk_track_role_create_time"  // 角色创建时间
+#define LKEventParamDelRoleTime     @"lk_track_role_del_time"     // 角色删除时间
 #define LKEventParamRoleUnion       @"lk_track_role_union"          // 角色公会&帮派
 #define LKEventParamRoleBalance     @"lk_track_role_balance"        // 角色余额
 #define LKEventParamRoleCareer      @"lk_track_role_career"         // 角色职业
@@ -445,6 +449,13 @@ eventValue:
 #define LKEventParamActivityType2   @"lk_track_product_activity_type2"      // 活动子类型2
 #define LKEventParamActivityType3   @"lk_track_product_activity_type3"      // 活动子类型3
 #define LKEventParamOperationType   @"lk_track_operation_type"              // 操作类型
+/*                  激活新增参数                  */
+#define LKEventParamAppId           @"lk_track_app_id"                      // 蓝港分配的appId
+#define LKEventParamGPUModle        @"lk_track_gpu_model"                   // GPU型号
+#define LKEventParamGPUMemorySize   @"lk_track_gpu_memory_size"             // 显存
+#define LKEventParamGPUVersion      @"lk_track_gpu_version"                 // GPU版本
+
+
 @interface LKTrack : NSObject
 /**
  *  单例
@@ -501,5 +512,6 @@ eventValue:
  *  @param application
  */
 - (void)applicationWillTerminate:(UIApplication *)application;
+
 @end
 ```
