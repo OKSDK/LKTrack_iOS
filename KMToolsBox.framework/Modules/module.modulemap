@@ -1,0 +1,6 @@
+framework module KMToolsBox {
+  umbrella header "KMToolsBox.h"
+
+  export *
+  module * { export * }
+}
