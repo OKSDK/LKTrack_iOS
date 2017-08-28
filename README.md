@@ -9,7 +9,6 @@
 >接口名以及参数都以宏定义，如果非OC原生工程调用接口过程中传递宏名不方便，也可直接传递宏定义的字符串，如：
 ```objective-c
 	NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
-	[mutable_Dic setInstance:@"123" ForKey:LKEventParamCompanyId];
 	[mutable_Dic setInstance:@"345" ForKey:LKEventParamChannelId];
 	[mutable_Dic setInstance:@"12345345" ForKey:LKEventParamAdId];
 	[mutable_Dic setInstance:@"180" ForKey:LKEventParamGameId];
@@ -18,7 +17,6 @@
 >等价于
 ```objective-c
 	NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
-	[mutable_Dic setInstance:@"123" ForKey:@“lk_track_company_id”];
 	[mutable_Dic setInstance:@"345" ForKey:@”lk_track_channel_id”];
 	[mutable_Dic setInstance:@"12345345" ForKey:@”lk_track_ad_id”];
 	[mutable_Dic setInstance:@"180" ForKey:@”lk_track_game_id"];
@@ -32,7 +30,6 @@ eventValue:
 
  参数名 | 类型 | 描述
  ----|------|----
- LKEventParamCompanyId | String  | 公司id
  LKEventParamChannelId | String  | 渠道id
  LKEventParamAdId | String  | 蓝港广告ID
  LKEventParamGameId | String  | 游戏ID
@@ -41,7 +38,6 @@ eventValue:
  示例：
  ```objective-c
     NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
-    [mutable_Dic setInstance:@"123" ForKey:LKEventParamCompanyId];
     [mutable_Dic setInstance:@"345" ForKey:LKEventParamChannelId];
     [mutable_Dic setInstance:@"12345345" ForKey:LKEventParamAdId];
     [mutable_Dic setInstance:@"180" ForKey:LKEventParamGameId];
