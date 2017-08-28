@@ -46,7 +46,7 @@ eventValue:
     [mutable_Dic setInstance:@"12345345" ForKey:LKEventParamAdId];
     [mutable_Dic setInstance:@"180" ForKey:LKEventParamGameId];
     [mutable_Dic setInstance:@"ios_app_1" ForKey:LKEventParamAppId];
-    [mutable_Dic setInstance:@"1080TI" ForKey:LKEventParamGPUModle];
+    [mutable_Dic setInstance:@"1080TI" ForKey:LKEventParamGPUModel];
     [mutable_Dic setInstance:@"8G" ForKey:LKEventParamGPUMemorySize];
     [mutable_Dic setInstance:@"1.3.5" ForKey:LKEventParamGPUVersion];
     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ACTIVE andEventValue:mutable_Dic];
@@ -113,7 +113,6 @@ eventValue:
  LKEventParamRoleName | String  | 角色名称
  LKEvetnParamRoleLevel | String  | 角色等级
  LKEventParamCreateRoleTime | String  | 创建角色时间
- LKEventParamDelRoleTime | String  | 删除角色时间
  LKEventParamRoleBalance | String  | 角色余额
  LKEventParamRoleCareer | String  | 角色职业
  LKEventParamRoleGender | String  | 角色性别
@@ -129,7 +128,6 @@ eventValue:
     [mutable_Dic setInstance:@"狂拽酷炫" ForKey:LKEventParamRoleName];
     [mutable_Dic setInstance:@"99" ForKey:LKEvetnParamRoleLevel];
     [mutable_Dic setInstance:@"2017-05-15" ForKey:LKEventParamCreateRoleTime];
-    [mutable_Dic setInstance:@"2017-05-29" ForKey:LKEventParamDelRoleTime];
     [mutable_Dic setInstance:@"99" ForKey:LKEventParamRoleBalance];
     [mutable_Dic setInstance:@"剑魂" ForKey:LKEventParamRoleCareer];
     [mutable_Dic setInstance:@"男" ForKey:LKEventParamRoleGender];
@@ -413,7 +411,6 @@ eventValue:
 #define LKEventParamRoleId          @"lk_track_role_id"             // 角色Id
 #define LKEvetnParamRoleLevel       @"lk_track_role_level"          // 角色等级
 #define LKEventParamCreateRoleTime  @"lk_track_role_create_time"  // 角色创建时间
-#define LKEventParamDelRoleTime     @"lk_track_role_del_time"     // 角色删除时间
 #define LKEventParamRoleUnion       @"lk_track_role_union"          // 角色公会&帮派
 #define LKEventParamRoleBalance     @"lk_track_role_balance"        // 角色余额
 #define LKEventParamRoleCareer      @"lk_track_role_career"         // 角色职业
@@ -451,7 +448,7 @@ eventValue:
 #define LKEventParamOperationType   @"lk_track_operation_type"              // 操作类型
 /*                  激活新增参数                  */
 #define LKEventParamAppId           @"lk_track_app_id"                      // 蓝港分配的appId
-#define LKEventParamGPUModle        @"lk_track_gpu_model"                   // GPU型号
+#define LKEventParamGPUModel        @"lk_track_gpu_model"                   // GPU型号
 #define LKEventParamGPUMemorySize   @"lk_track_gpu_memory_size"             // 显存
 #define LKEventParamGPUVersion      @"lk_track_gpu_version"                 // GPU版本
 
