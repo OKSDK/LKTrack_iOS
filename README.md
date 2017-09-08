@@ -1,8 +1,7 @@
 # 统计SDK
 ----
 ### 一、统计SDK文件
-![avatar](http://oscsfqu9d.bkt.clouddn.com/%E5%9B%BE%E7%89%87%201.png)
->游戏或app接入统计SDK，需将压缩包中的文件添加到自己工程目录下，其中需注意配置文件lkstatis.cfg（如果不放配置文件默认用中国大陆的服务器），当中url字段为统计服务器地址,每个国家或地区url都不相同。
+>游戏或app接入统计SDK，需将压缩包中的文件libLKTrack.a和LKTrack.h添加到自己工程目录下，其中需注意配置文件lkstatis.cfg（如果不放配置文件默认用中国大陆的服务器），当中url字段为统计服务器地址,每个国家或地区url都不相同,请将对应地区的配置文件添加到工程中。
 ### 二、添加必要的库文件
 >统计sdk依赖于OKSDK的KMToolBox.framework，如果工程中未添加此文件，则需要将下图文件添加到工程中，如果在接入OKSDK时已添加过，则只需替换即可。
 ![avatar](http://oscsfqu9d.bkt.clouddn.com/%E5%9B%BE%E7%89%87%202.png)
