@@ -238,6 +238,7 @@ eventValue:
 
  参数名 | 类型 | 描述
  ----|------|----
+ LKEventParamEnterTime | String  | 进入关卡时间
  LKEventParamResultTime | String  | 完成关卡时间
  LKEventParamPassId | String  | 关卡ID（如：坐骑副本，装备副本）
  LKEventParamKey1 | String  | 预留字段1
@@ -248,6 +249,7 @@ eventValue:
  示例：
 ```objective-c
     NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
+    [mutable_Dic setInstance:@"2017-06-26" ForKey:LKEventParamEnterTime];
     [mutable_Dic setInstance:@"2017-06-26" ForKey:LKEventParamResultTime];
     [mutable_Dic setInstance:@"123" ForKey:LKEventParamPassId];
     [mutable_Dic setInstance:@"1" ForKey:LKEventParamResultId];
