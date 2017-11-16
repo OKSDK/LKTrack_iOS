@@ -31,7 +31,7 @@ eventValue:
  参数名 | 类型 | 描述
  ----|------|----
  LKEventParamChannelId | String  | 渠道id
- LKEventParamAdId | String  | 蓝港广告ID,没有可传空字符串
+ LKEventParamAdId | String  | 蓝港广告ID，可传空
  LKEventParamGameId | String  | 游戏ID
  LKEventParamAppId | String | 统计平台分配的appid
  
