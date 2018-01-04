@@ -12,7 +12,8 @@
 	[mutable_Dic setInstance:@"345" ForKey:LKEventParamChannelId];
 	[mutable_Dic setInstance:@"12345345" ForKey:LKEventParamAdId];
 	[mutable_Dic setInstance:@"180" ForKey:LKEventParamGameId];
-	[[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ACTIVE andEventValue:mutable_Dic];
+	NSString *str = [self dataTojsonString:mutable_Dic];
+	[[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ACTIVE andEventValue:str];
 ```
 >等价于
 ```objective-c
@@ -20,7 +21,8 @@
 	[mutable_Dic setInstance:@"345" ForKey:@”lk_track_channel_id”];
 	[mutable_Dic setInstance:@"12345345" ForKey:@”lk_track_ad_id”];
 	[mutable_Dic setInstance:@"180" ForKey:@”lk_track_game_id"];
-	[[LKTrack shareInstance] eventTrackWithEventType:@”lk_sdk_active” andEventValue:mutable_Dic];
+	NSString *str = [self dataTojsonString:mutable_Dic];
+	[[LKTrack shareInstance] eventTrackWithEventType:@”lk_sdk_active” andEventValue:str];
 ```
 <font color=red>文档以下说明均以宏名表示字段名</font>
 
@@ -45,7 +47,8 @@ eventValue:
     [mutable_Dic setInstance:@"1080TI" ForKey:LKEventParamGPUModel];
     [mutable_Dic setInstance:@"8G" ForKey:LKEventParamGPUMemorySize];
     [mutable_Dic setInstance:@"1.3.5" ForKey:LKEventParamGPUVersion];
-    [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ACTIVE andEventValue:mutable_Dic];
+    NSString *str = [self dataTojsonString:mutable_Dic];
+    [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ACTIVE andEventValue:str];
   ```
  
 2. 登录（必接)【成功、失败、取消】（必接）
@@ -67,7 +70,8 @@ eventValue:
     [mutable_Dic setInstance:nil ForKey:LKEventParamPassportId];
     [mutable_Dic setInstance:nil ForKey:LKEventParamPassportType];
     [mutable_Dic setInstance:nil ForKey:LKEventParamPassportBalance];
-    [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_LOGIN_SUCCESS andEventValue:@""];
+    NSString *str = [self dataTojsonString:mutable_Dic];
+    [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_LOGIN_SUCCESS andEventValue:str];
 ```
 
 3. 创建角色（非必接）  
@@ -93,8 +97,9 @@ eventValue:
     [m_Dictionary setInstance:[paramDic objectForKey:@"serverName"] ForKey:LKEventParamServerName];
     [m_Dictionary setInstance:[paramDic objectForKey:@"createRoleTime"] ForKey:LKEventParamCreateRoleTime];
     [m_Dictionary setInstance:[paramDic objectForKey:@"roleCareer"] ForKey:LKEventParamRoleCareer];  
-    [m_Dictionary setInstance:[paramDic objectForKey:@"roleGender"] ForKey:LKEventParamRoleGender];  
-    [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_CREATE_ROLE andEventValue:m_Dictionary];
+    [m_Dictionary setInstance:[paramDic objectForKey:@"roleGender"] ForKey:LKEventParamRoleGender];
+    NSString *str = [self dataTojsonString:m_Dictionary];
+    [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_CREATE_ROLE andEventValue:str];
  ```
  
 4. 进入游戏（必接）  
@@ -151,7 +156,8 @@ eventValue:
     [mutable_Dic setInstance:@"部落" ForKey:LKEventParamRoleFaction];
     [mutable_Dic setInstance:@"魔法少女协会" ForKey:LKEventParamRoleUnion];
     [mutable_Dic setInstance:@"9999999" ForKey:LKEventParamRoleBalance];
-    [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ROLE_UPGRADE andEventValue:mutable_Dic];
+    NSString *str = [self dataTojsonString:mutable_Dic];
+    [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_ROLE_UPGRADE andEventValue:str];
 
 ```
 
@@ -171,7 +177,8 @@ eventValue:
 	[mutable_Dic setInstance:_amount ForKey:LKEventParamMoneyAmount];
 	[mutable_Dic setInstance:_productName ForKey:LKEventParamProductName];
 	[mutable_Dic setInstance:_productId ForKey:LKEventParamProductId];
-	[[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_PURCHASE_SUCCESS andEventValue:mutable_Dic];
+	NSString *str = [self dataTojsonString:mutable_Dic];
+	[[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_PURCHASE_SUCCESS andEventValue:str];
 ```
 
 7. 登出（必接）  
@@ -191,7 +198,8 @@ eventValue:
     [mutable_Dic setInstance:@"325" ForKey:LKEventParamMoney1];
     [mutable_Dic setInstance:@"310" ForKey:LKEventParamMoney2];
     [mutable_Dic setInstance:@"988000 " ForKey:LKEventParamExperience];
-    [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_LOGOUT andEventValue:nil];
+    NSString *str = [self dataTojsonString:mutable_Dic];
+    [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_LOGOUT andEventValue:str];
 ```
 
 8. 自定义事件  
@@ -206,7 +214,8 @@ eventValue:
  ```objective-c
      NSMutableDictionary *mutable_Dic = [NSMutableDictionary dictionary];
      [mutable_Dic setInstance:@"{\"eventName\":\"这是一个自定义事件\"}" ForKey:LKEventParamCustomInfo];
-     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_CUSTOM andEventValue:mutable_Dic];
+     NSString *str = [self dataTojsonString:mutable_Dic];
+     [[LKTrack shareInstance] eventTrackWithEventType:LK_TRACK_CUSTOM andEventValue:str];
 ```
 
 9. 进入关卡（非必接）  
