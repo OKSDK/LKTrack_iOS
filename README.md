@@ -36,6 +36,9 @@ eventValue:
  LKEventParamGameId | String  | 游戏ID | 必传
  LKEventParamAppId | String | 统计平台分配的appid | 必传
  LKEventParamAdId | String  | 蓝港广告ID，可传空 |非必传
+ LKEventParamPackSuffix | String | 包名后缀 | 非必传
+ 
+ 请注意LKEventParamPackSuffix字段，如果想要区分相同包名在不同渠道下的数据，请务必传入该字段
  
  示例：
  ```objective-c
@@ -458,7 +461,7 @@ eventValue:
 #define LKEventParamGPUModel        @"lk_track_gpu_model"                   // GPU型号
 #define LKEventParamGPUMemorySize   @"lk_track_gpu_memory_size"             // 显存
 #define LKEventParamGPUVersion      @"lk_track_gpu_version"                 // GPU版本
-
+#define LKEventParamPackSuffix      @"lk_track_pack_suffix"                 // 用于区分相同包名下给不同渠道发行
 
 @interface LKTrack : NSObject
 /**
