@@ -38,7 +38,7 @@ eventValue:
  LKEventParamAdId | String  | 蓝港广告ID，可传空 |非必传
  LKEventParamPackSuffix | String | 包名后缀 | 非必传
  
- 请注意LKEventParamPackSuffix字段，如果想要区分相同包名在不同渠道下的数据，请务必传入该字段(现海外游戏已有三个默认值，官网包请传入.linekong，谷歌包.google,iOS包请传入.appstore，请注意不要漏掉前面的".")
+ 请注意LKEventParamPackSuffix字段，如果想要区分相同包名在不同渠道下的数据，请务必传入该字段(现海外游戏已有三个默认值，官网包请传入.linekong，谷歌包请传入.google, iOS包请传入.appstore，请注意不要漏掉前面的".")
  
  示例：
  ```objective-c
