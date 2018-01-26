@@ -60,8 +60,8 @@ eventValue:
 
  参数名 | 类型 | 描述 | 是否必传
  ----|------|----|-----
- LKEventParamPassportId | String  | erating系统返回游戏的user_id | 必传
- LKEventParamPassportName | String  | erating系统返回游戏的user_name | 必传
+ LKEventParamPassportId | String  | 与erating系统中user_id相同 | 必传
+ LKEventParamPassportName | String  | 与erating系统中user_name相同 | 必传
  LKEventParamPassportType | String  | 账号类型 | 非必传
  LKEventParamPassportBalance | String  | 账号余额 | 非必传
  
