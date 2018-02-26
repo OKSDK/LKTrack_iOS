@@ -229,6 +229,7 @@ eventValue:
  ----|------|-----|-----
  LKEventParamEnterTime | String  | 进入关卡时间 | 必传
  LKEventParamPassId | String  | 关卡ID（如：坐骑副本，装备副本） | 必传
+ LKEventParamClass | String | 关卡类型（1.关卡 2.任务） | 必传
  LKEventParamKey1 | String  | 预留字段1 | 非必传
  LKEventParamKey2 | String  | 预留字段2 | 非必传
  LKEventParamKey3 | String  | 预留字段3 | 非必传
@@ -253,6 +254,7 @@ eventValue:
  LKEventParamEnterTime | String  | 进入关卡时间 | 必传
  LKEventParamResultTime | String  | 完成关卡时间 | 必传
  LKEventParamPassId | String  | 关卡ID（如：坐骑副本，装备副本）|必传
+ LKEventParamClass | String | 关卡类型（1.关卡 2.任务） | 必传
  LKEventParamResultId | String  | 结果，如：1 - 成功；2 - 失败 | 必传
  LKEventParamKey1 | String  | 预留字段1 | 非必传
  LKEventParamKey2 | String  | 预留字段2 | 非必传
